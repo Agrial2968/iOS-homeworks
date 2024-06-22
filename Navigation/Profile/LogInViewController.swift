@@ -107,7 +107,7 @@ class LogInViewController: UIViewController {
         let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height
         
         let yOffset = contentScrollView.contentSize.height + (keyboardHeight ?? 0) - view.frame.height
-        contentScrollView.contentOffset.y = yOffset
+        contentScrollView.contentOffset.y = yOffset > 0 ? yOffset : contentScrollView.contentOffset.y
     }
     
     @objc func willHideKeyboard(_ notification: NSNotification) {
