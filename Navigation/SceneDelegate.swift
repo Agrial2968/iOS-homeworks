@@ -18,21 +18,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: scene)
         
-        let tabBerController = UITabBarController()
+        let tabBarController = UITabBarController()
         
         let feedViewController = FeedViewController()
         feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "folder.fill"), tag: 0)
         
-        let profileViewController = ProfileViewController()
-        profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle"), tag: 1)
+        let logInViewController = LogInViewController()
+        logInViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName:   "person.crop.circle"), tag: 1)
         
-        let controllers = [feedViewController, profileViewController]
-        tabBerController.viewControllers = controllers.map {
+        let controllers = [feedViewController, logInViewController]
+        tabBarController.viewControllers = controllers.map {
             UINavigationController(rootViewController: $0)
-}
-        tabBerController.selectedIndex = 0
+        }
+        tabBarController.selectedIndex = 0
         
-        window.rootViewController = tabBerController
+        window.rootViewController = tabBarController
         window.makeKeyAndVisible()
         
         

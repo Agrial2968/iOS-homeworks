@@ -17,6 +17,7 @@
 		54D593292C2581C900EBE149 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D593282C2581C900EBE149 /* InfoViewController.swift */; };
 		54D5932B2C25831400EBE149 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5932A2C25831400EBE149 /* ProfileViewController.swift */; };
 		54D5932E2C25833E00EBE149 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5932D2C25833E00EBE149 /* ProfileHeaderView.swift */; };
+		54E87F7B2C2710BC00A9010C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E87F7A2C2710BC00A9010C /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		54D593282C2581C900EBE149 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		54D5932A2C25831400EBE149 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		54D5932D2C25833E00EBE149 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		54E87F7A2C2710BC00A9010C /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				54D5932A2C25831400EBE149 /* ProfileViewController.swift */,
 				54D5932D2C25833E00EBE149 /* ProfileHeaderView.swift */,
+				54E87F7A2C2710BC00A9010C /* LogInViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			files = (
 				540BCD2A2C22178300FE60CC /* PostViewController.swift in Sources */,
 				540BCD162C220A3000FE60CC /* FeedViewController.swift in Sources */,
+				54E87F7B2C2710BC00A9010C /* LogInViewController.swift in Sources */,
 				540BCD122C220A3000FE60CC /* AppDelegate.swift in Sources */,
 				54D593292C2581C900EBE149 /* InfoViewController.swift in Sources */,
 				540BCD142C220A3000FE60CC /* SceneDelegate.swift in Sources */,
