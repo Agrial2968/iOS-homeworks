@@ -10,8 +10,6 @@ import UIKit
 
 class PostViewController: UIViewController {
     
-    var post = Post(title: "Пост")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -21,7 +19,7 @@ class PostViewController: UIViewController {
             target: self,
             action: #selector(navigationButtonTapped)
         )
-        title = post.title
+        title = "post.title"
     }
     
     @objc func navigationButtonTapped() {

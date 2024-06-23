@@ -27,6 +27,8 @@ class ProfileHeaderView: UIView {
     }
     
     func configureView() {
+        backgroundColor = .white
+        
         profileImageView.layer.cornerRadius = 60
         profileImageView.layer.borderWidth = 3.0
         profileImageView.layer.borderColor = UIColor.white.cgColor
@@ -56,6 +58,7 @@ class ProfileHeaderView: UIView {
         statusTextField.layer.cornerRadius = 12
         statusTextField.layer.borderWidth = 1.0
         statusTextField.layer.borderColor = UIColor.black.cgColor
+        statusTextField.placeholder = "write your status"
         statusTextField.addTarget(self, action: #selector(statusTextChanged(_ :)), for: .editingChanged)
     }
     
@@ -106,6 +109,7 @@ class ProfileHeaderView: UIView {
     @objc func buttonPressed() {
         profileStatusLabel.text = statusText
         statusTextField.text = ""
+        endEditing(true)
     }
     
     @objc func statusTextChanged(_ textField: UITextField) {

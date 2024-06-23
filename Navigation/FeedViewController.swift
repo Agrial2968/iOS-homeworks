@@ -9,8 +9,6 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    let post = Post(title: "Первый пост")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -23,7 +21,6 @@ class FeedViewController: UIViewController {
     
     @objc func buttonTapped() {
         let postViewController = PostViewController()
-        postViewController.post = post
         navigationController?.pushViewController(postViewController, animated: true)
     }
 }
