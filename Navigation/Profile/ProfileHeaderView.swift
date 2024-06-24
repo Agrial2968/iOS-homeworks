@@ -9,17 +9,66 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     
-    let profileNameLabel = UILabel()
-    let profileImageView = UIImageView()
-    let profileStatusLabel = UILabel()
-    let showStatusButton = UIButton()
-    let statusTextField = NiceTextField()
+    let profileNameLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 18, weight: .bold)
+        label.textColor = .black
+        label.text = "Hipster Cat"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.cornerRadius = 60
+        imageView.layer.borderWidth = 3.0
+        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.image = UIImage(named: "cat")
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let profileStatusLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Waiting for something..."
+        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.textColor = .gray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    let showStatusButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 4
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowRadius = 4
+        button.layer.shadowOpacity = 0.7
+        button.layer.shadowOffset = .init(width: 4, height: 4)
+        button.setTitle("Show status", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    let statusTextField: UITextField = {
+        let textField = UITextField()
+        textField.backgroundColor = .white
+        textField.font = .systemFont(ofSize: 15, weight: .regular)
+        textField.textColor = .black
+        textField.layer.cornerRadius = 12
+        textField.layer.borderWidth = 1.0
+        textField.layer.borderColor = UIColor.black.cgColor
+        textField.placeholder = "write your status"
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
     
     private var statusText: String?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureView()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -27,53 +76,17 @@ class ProfileHeaderView: UIView {
     }
     
     func configureView() {
-        profileImageView.layer.cornerRadius = 60
-        profileImageView.layer.borderWidth = 3.0
-        profileImageView.layer.borderColor = UIColor.white.cgColor
-        profileImageView.image = UIImage(named: "cat")
-        profileImageView.clipsToBounds = true
-        
-        profileNameLabel.font = .systemFont(ofSize: 18, weight: .bold)
-        profileNameLabel.textColor = .black
-        profileNameLabel.text = "Hipster Cat"
-        
-        profileStatusLabel.text = "Waiting for something..."
-        profileStatusLabel.font = .systemFont(ofSize: 14, weight: .regular)
-        profileStatusLabel.textColor = .gray
-        
-        showStatusButton.backgroundColor = .systemBlue
-        showStatusButton.layer.cornerRadius = 4
-        showStatusButton.layer.shadowColor = UIColor.black.cgColor
-        showStatusButton.layer.shadowRadius = 4
-        showStatusButton.layer.shadowOpacity = 0.7
-        showStatusButton.layer.shadowOffset = .init(width: 4, height: 4)
-        showStatusButton.setTitle("Show status", for: .normal)
+        backgroundColor = .white
         showStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        
-        statusTextField.backgroundColor = .white
-        statusTextField.font = .systemFont(ofSize: 15, weight: .regular)
-        statusTextField.textColor = .black
-        statusTextField.layer.cornerRadius = 12
-        statusTextField.layer.borderWidth = 1.0
-        statusTextField.layer.borderColor = UIColor.black.cgColor
-        statusTextField.addTarget(self, action: #selector(statusTextChanged(_ :)), for: .editingChanged)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
         addSubview(profileImageView)
         addSubview(profileNameLabel)
         addSubview(profileStatusLabel)
         addSubview(showStatusButton)
         addSubview(statusTextField)
-        
-        profileImageView.translatesAutoresizingMaskIntoConstraints = false
-        profileNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        profileStatusLabel.translatesAutoresizingMaskIntoConstraints = false
-        showStatusButton.translatesAutoresizingMaskIntoConstraints = false
-        statusTextField.translatesAutoresizingMaskIntoConstraints = false
-        
+        statusTextField.addTarget(self, action: #selector(statusTextChanged(_ :)), for: .editingChanged)
+    }
+    
+    func setupConstraints() {
         NSLayoutConstraint.activate([
             profileImageView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),
             profileImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -106,21 +119,10 @@ class ProfileHeaderView: UIView {
     @objc func buttonPressed() {
         profileStatusLabel.text = statusText
         statusTextField.text = ""
+        endEditing(true)
     }
     
     @objc func statusTextChanged(_ textField: UITextField) {
         statusText = textField.text
-    }
-}
-
-class NiceTextField: UITextField {
-    let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-    
-    override func textRect(forBounds bounds: CGRect) -> CGRect {
-        super.textRect(forBounds: bounds.inset(by: padding))
-    }
-    
-    override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        super.editingRect(forBounds: bounds.inset(by: padding))
     }
 }
