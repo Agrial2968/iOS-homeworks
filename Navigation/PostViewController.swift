@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+
 class PostViewController: UIViewController {
     
     var post = Post(title: "Пост")
