@@ -1,4 +1,4 @@
-# iOS-homeworks
+# iOS-works
 В данном проекте были изучены: 
 Жизненный цикл UIViewController;
 Базовые UI-компоненты; 
